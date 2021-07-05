@@ -1,4 +1,4 @@
-FROM node:stretch-slim
+FROM node:slim
 
 WORKDIR /app
 
@@ -8,10 +8,11 @@ COPY package.json ./
 
 COPY package-lock.json ./
 
-RUN npm install && npm run build
+RUN npm install 
 
 COPY  build  ./build
 
 COPY server.js ./
-CMD ["npm", "start"]    
+
+CMD ["node", "server.js"]    
 
